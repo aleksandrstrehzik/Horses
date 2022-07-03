@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/images/validation-form.js}"></script>
+    <link rel="stylesheet" href="../static/images/bootstrap.min.css" th:href="@{/images/bootstrap.min.css}"/>
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<div class="container mt-5" style="width: 300px">
+    <h3 class="text-center">Добавить лошадь</h3>
+    <form th:method="POST" th:action="@{/create-horse}" th:object="${horse}" onsubmit="return validationForm()">
+        <input type="text" th:field="*{type}" id="type" placeholder="Horse type" class="form-control"><br/>
+        <input type="text" th:field="*{age}" id="age" placeholder="Horse age" class="form-control"><br/>
+        <input type="text" th:field="*{price}" id="price" placeholder="Horse price" class="form-control"><br/>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </form>
+</div>
+</body>
+</html>
